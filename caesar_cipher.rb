@@ -12,12 +12,11 @@ def caesar_cypher(sentence, shift_factor)
 
    #97 = a ; 122 = z
    if(ascii_value >= 97 && ascii_value <= 122)
-     if((ascii_value - shift_factor) < 97)
-       new_ascii_value = #que empieze a restar desde 122
+     if((ascii_value + shift_factor) > 122)
+       new_ascii_value += 96 + ascii_value + shift_factor -122
      end
-     #encrypted_message += (ascii_value - 2).chr
    end
-     encrypted_message += (ascii_value - 2).chr
+     encrypted_message += new_ascii_value.chr
  end
 
   puts "\nOriginal message:"
