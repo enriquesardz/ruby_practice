@@ -3,13 +3,13 @@ def caesar_cypher(sentence, shift_factor)
 #Integer.chr from int to Ascii character
 
  encrypted_message = ""
-
+ if !(shift_factor >= 0 && shift_factor < 27)
+   return puts "Caesar cypher can only take ranges from 0 to 26"
+ end
  sentence.split("").each do |character|
 
    ascii_value = character.ord
    new_ascii_value = 0
-
-
    #97 = a ; 122 = z
    if(ascii_value >= 97 && ascii_value <= 122)
      if((ascii_value + shift_factor) > 122)
@@ -40,3 +40,5 @@ end
 
 caesar_cypher("This is my test sentence, lets see how it goes", 2)
 caesar_cypher("I would imagine that it doesn't matter what I type, it WILL get encrypted!", 12)
+caesar_cypher("I would imagine that it doesn't matter what I type, it WILL get encrypted!", 26)
+caesar_cypher("I would imagine that it doesn't matter what I type, it WILL get encrypted!", 27)
