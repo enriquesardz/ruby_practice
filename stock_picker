@@ -1,0 +1,23 @@
+def stock_picker(*days_values)
+  buy_value = nil
+  sell_value = nil
+  best_buy_value = nil
+  best_sell_value = nil
+  max_profit = 0
+
+  for i in 0...days_values.length-1
+    buy_value = days_values[i]
+    for j in i+1...days_values.length-1
+      sell_value = days_values[j]
+      if (sell_value - buy_value) > max_profit then
+        max_profit = sell_value - buy_value
+        best_buy_value = buy_value
+        best_sell_value = sell_value
+      end
+    end
+  end
+
+  return puts "[#{days_values.index(best_buy_value)},#{days_values.index(best_sell_value)} => #{best_sell_value}-#{best_buy_value} = #{best_sell_value - best_buy_value}]"
+end
+
+stock_picker(17,3,6,9,15,8,6,1,10)
