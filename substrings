@@ -1,0 +1,21 @@
+def substrings(sentence, list_of_words)
+
+  repetition_counter = Hash.new(0) #empty hash
+  sentence.downcase!
+  words = sentence.scan(/\w+/) #turns the sentence string to an array
+
+  words.each do |word|
+    list_of_words.each do |word_match|
+      if (word.match(word_match)) then
+        repetition_counter[word_match] += 1
+      end
+    end
+  end
+
+  puts repetition_counter
+end
+
+dictionary = %w{below down go going horn how howdy it i low own part partner sit}
+
+substrings("below", dictionary)
+substrings("Howdy partner, sit down! How's it going?", dictionary)
